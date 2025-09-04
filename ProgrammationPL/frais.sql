@@ -1,0 +1,11 @@
+DELIMITER $$
+
+CREATE FUNCTION frais_retard(jours_retard INT) 
+RETURNS DECIMAL(5,2)
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    RETURN jours_retard * 0.5;
+END $$
+
+DELIMITER ;

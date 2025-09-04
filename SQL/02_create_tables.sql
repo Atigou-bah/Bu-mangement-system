@@ -28,3 +28,5 @@ CREATE TABLE emprunt (
 
 CREATE INDEX idx_emprunt_etudiant ON emprunt(id_etudiant);
 CREATE INDEX idx_emprunt_livre ON emprunt(id_livre);
+
+
