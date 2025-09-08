@@ -1,6 +1,6 @@
 DELIMITER $$
 
-CREATE FUNCTION livre_disponible(p_id_livre INT) 
+CREATE FUNCTION existe_etudiant(p_id_etudiant INT) 
 RETURNS BOOLEAN
 DETERMINISTIC
 READS SQL DATA
@@ -8,16 +8,14 @@ BEGIN
     DECLARE nb INT;
 
     SELECT COUNT(*) INTO nb
-    FROM emprunt
-    WHERE id_livre = p_id_livre
-      AND date_retour IS NULL; 
+    FROM etudiant
+    WHERE id_etudiant = p_id_etudiant;
 
-    IF nb = 0 THEN
-        RETURN TRUE;   
+    IF nb > 0 THEN
+        RETURN TRUE;  
     ELSE
         RETURN FALSE;  
     END IF;
 END$$
 
 DELIMITER ;
-
