@@ -30,3 +30,13 @@ CREATE INDEX idx_emprunt_etudiant ON emprunt(id_etudiant);
 CREATE INDEX idx_emprunt_livre ON emprunt(id_livre);
 
 
+--- ajout d'une colonne date de retour 
+ALTER TABLE emprunt
+ADD COLUMN date_retour DATE;
+
+UPDATE emprunt
+SET date_retour = DATE_ADD(date_emprunt, INTERVAL nb_jours_max DAY);
+
+
+
+
